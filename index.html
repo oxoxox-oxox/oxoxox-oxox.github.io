@@ -9,10 +9,45 @@
 </head>
 
 <body>
-    <div class="card">
-        <h1 id="greeting">Hello World！</h1>
-        <p>这是我的个人主页。</p>
-        <button id="btn">点我换颜色</button>
+    <div class="page-wrapper">
+        <!-- 1. 顶部 Header：与下方内容在同一垂直轨道上，自然流畅 -->
+        <header class="hero">
+            <div class="status-badge">
+                <span class="status-dot"></span> CS Major · UNNC
+            </div>
+            <h1 id="greeting">oxoxox-oxox</h1>
+            <p class="tagline">正在探索计算机各个领域的开发者</p>
+        </header>
+
+        <!-- 2. 主体卡片区：半透明融入背景 -->
+        <main class="container">
+            <section class="card">
+                <h2>关于我</h2>
+                <p>你好！我是宁波诺丁汉大学在读的计算机专业学生，热爱技术，正在探索前端与全栈领域。</p>
+            </section>
+
+            <!-- 卡片 2：我的技能 -->
+            <section class="card">
+                <h2>🛠️ 学习技能</h2>
+                <div class="tags">
+                    <span class="tag">HTML5</span>
+                    <span class="tag">CSS3</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Git & GitHub Pages</span>
+                </div>
+            </section>
+
+            <!-- 卡片 3：项目 / 链接 -->
+            <section class="card">
+                <h2>🔗 找到我</h2>
+                <p>GitHub: <a href="https://github.com/oxoxox-oxox" target="_blank">@oxoxox-oxox</a></p>
+            </section>
+        </main>
+
+        <!-- 3. 底部信息 -->
+        <footer class="footer">
+            <p>© 2026 oxoxox-oxox · Built with HTML/CSS/JS</p>
+        </footer>
     </div>
     <script src="script.js"></script>
 </body>
