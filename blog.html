@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog · oxoxox-oxox</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <!-- 1. 顶部全局导航栏（与主页统一，高亮 Blog） -->
+        <nav class="navbar">
+            <a href="index.html" class="nav-brand">oxoxox-oxox's ink</a>
+            <div class="nav-menu">
+                <a href="blog.html" class="nav-link active">Blog</a>
+                <a href="index.html#projects" class="nav-link">Projects</a>
+                <a href="index.html#links" class="nav-link">Links</a>
+                <a href="index.html" class="nav-link">About</a>
+                <!-- 搜索图标 -->
+                <button class="nav-icon-btn" title="Search" aria-label="Search">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+                <!-- 终端图标 -->
+                <button class="nav-icon-btn" title="Device" aria-label="Device">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- 2. 博客头部介绍 -->
+        <header class="blog-header">
+            <h1 class="blog-title">Blog</h1>
+            <p class="blog-subtitle">记录计算机学习、技术探索与生活思考</p>
+        </header>
+
+        <!-- 3. 文章列表 -->
+        <main class="post-list">
+            <!-- 示例文章 1 -->
+            <article class="post-item">
+                <div class="post-meta">
+                    <time class="post-date">2026-09-25</time>
+                    <span class="post-tag">碎碎念</span>
+                </div>
+                <h2 class="post-heading">
+                    <a href="post.html?post=hello" class="post-link">大一个人感受</a>
+                </h2>
+                <p class="post-excerpt">
+                    大一一年探索之后的感受
+                </p>
+            </article>
+        </main>
+
+        <!-- 4. 底部版权 -->
+        <footer class="footer">
+            <p>© 2026 oxoxox-oxox · Built with HTML/CSS/JS</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

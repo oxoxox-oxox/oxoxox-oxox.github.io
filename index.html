@@ -10,41 +10,83 @@
 
 <body>
     <div class="page-wrapper">
-        <!-- 1. 顶部 Header：与下方内容在同一垂直轨道上，自然流畅 -->
-        <header class="hero">
-            <div class="status-badge">
-                <span class="status-dot"></span> CS Major · UNNC
+        <!-- 1. 顶部全局导航栏 -->
+        <nav class="navbar">
+            <a href="index.html" class="nav-brand">oxoxox-oxox's ink</a>
+            <div class="nav-menu">
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="index.html" class="nav-link active">About</a>
+                <!-- 搜索图标 -->
+                <button class="nav-icon-btn" title="Search" aria-label="Search">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+                <!-- 终端/设备切换图标 -->
+                <button class="nav-icon-btn" title="Device" aria-label="Device">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                </button>
             </div>
-            <h1 id="greeting">oxoxox-oxox</h1>
-            <p class="tagline">正在探索计算机各个领域的开发者</p>
+        </nav>
+
+        <!-- 2. 居中个人画像区域 (Hero) -->
+        <header class="hero-center">
+            <img class="hero-avatar" src="./img/cat.jpg" alt="头像">
+            <h1 class="hero-name" id="greeting">oxoxox-oxox</h1>
+            <div class="hero-meta">
+                <span class="meta-item">
+                    <!-- 定位图标 -->
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>China / Ningbo</span>
+                </span>
+                <a href="https://github.com/oxoxox-oxox" target="_blank" class="meta-item meta-link">
+                    <!-- GitHub 图标 -->
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+            </div>
         </header>
 
-        <!-- 2. 主体卡片区：半透明融入背景 -->
-        <main class="container">
-            <section class="card">
-                <h2>关于我</h2>
-                <p>你好！我是宁波诺丁汉大学在读的计算机专业学生，热爱技术，正在探索前端与全栈领域。</p>
-            </section>
+        <!-- 3. 主体分栏内容区：左栏大标题，右栏正文流 -->
+        <main class="content-section">
+            <div class="section-grid">
+                <!-- 左栏：章节标题 -->
+                <aside class="section-title">
+                    <h2>About</h2>
+                </aside>
 
-            <!-- 卡片 2：我的技能 -->
-            <section class="card">
-                <h2>🛠️ 学习技能</h2>
-                <div class="tags">
-                    <span class="tag">HTML5</span>
-                    <span class="tag">CSS3</span>
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">Git & GitHub Pages</span>
+                <!-- 右栏：个人经历叙述 -->
+                <div class="section-body">
+                    <p class="role-tagline">
+                        Developer / CS Student / <s>Beginner</s>
+                    </p>
+                    <p>你好，我叫 oxoxox-oxox。</p>
+                    <p>本科就读于宁波诺丁汉大学计算机科学专业。正在探索计算机各个领域，热衷于构建高效且富有趣味的项目。</p>
+                    <p>目前在各个方向迷茫的徘徊，依旧在探索并学习</p>
+
+                    <!-- 右下角胶囊按钮 -->
+                    <div class="section-actions">
+                        <a href="https://github.com/oxoxox-oxox" target="_blank" class="btn-pill">More about me</a>
+                    </div>
                 </div>
-            </section>
-
-            <!-- 卡片 3：项目 / 链接 -->
-            <section class="card">
-                <h2>🔗 找到我</h2>
-                <p>GitHub: <a href="https://github.com/oxoxox-oxox" target="_blank">@oxoxox-oxox</a></p>
-            </section>
+            </div>
         </main>
 
-        <!-- 3. 底部信息 -->
+        <!-- 4. 底部版权 -->
         <footer class="footer">
             <p>© 2026 oxoxox-oxox · Built with HTML/CSS/JS</p>
         </footer>

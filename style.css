@@ -1,4 +1,6 @@
-/* 全局重置与深黑质感背景 */
+/* =========================================
+   全局重置与深黑质感背景（严格保持原配色不变）
+   ========================================= */
 body {
     margin: 0;
     padding: 0;
@@ -12,18 +14,15 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* =========================================
-   全局主容器：将头部、卡片流、页脚收归同一垂直轴线
-   彻底解决“头部满屏横幅、下方孤立小方块”的脱节感
-   ========================================= */
+/* 页面主容器：适度拓宽以容纳优雅的双栏图文排版 */
 .page-wrapper {
-    max-width: 680px;
+    max-width: 840px;
     margin: 0 auto;
-    padding: 4.5rem 1.25rem 3rem;
+    padding: 1.5rem 1.75rem 4rem;
 }
 
 /* =========================================
-   入场渐入动画：优雅上浮
+   入场渐入动画：优雅依次浮现
    ========================================= */
 @keyframes fadeInUp {
     from {
@@ -36,148 +35,427 @@ body {
     }
 }
 
-.hero,
-.card,
+.navbar,
+.hero-center,
+.content-section,
+.blog-header,
+.post-list,
 .footer {
     animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 
-.hero { animation-delay: 0.08s; }
-.container .card:nth-child(1) { animation-delay: 0.2s; }
-.container .card:nth-child(2) { animation-delay: 0.32s; }
-.container .card:nth-child(3) { animation-delay: 0.44s; }
-.footer { animation-delay: 0.56s; }
+.navbar         { animation-delay: 0.05s; }
+.hero-center    { animation-delay: 0.18s; }
+.content-section{ animation-delay: 0.32s; }
+.blog-header    { animation-delay: 0.18s; }
+.post-list      { animation-delay: 0.32s; }
+.footer         { animation-delay: 0.46s; }
 
 /* =========================================
-   顶部 Hero 区域：与下方正文自然相连
+   1. 顶部全局导航栏（左右两端对齐）
    ========================================= */
-.hero {
-    margin-bottom: 2.8rem;
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0 4rem;
 }
 
-/* 小巧精致的状态徽章 */
-.status-badge {
+.nav-brand {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fafafa;
+    text-decoration: none;
+    letter-spacing: -0.3px;
+    transition: opacity 0.2s;
+}
+
+.nav-brand:hover {
+    opacity: 0.85;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.nav-link {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #fafafa;
+}
+
+.nav-icon-btn {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    font-size: 0.8rem;
-    color: #94a3b8;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 3px 11px;
-    border-radius: 9999px;
-    margin-bottom: 1.2rem;
+    justify-content: center;
+    padding: 4px;
+    border-radius: 6px;
+    transition: color 0.2s;
 }
 
-.status-dot {
-    width: 6px;
-    height: 6px;
-    background-color: #10b981;
+.nav-icon-btn:hover {
+    color: #38bdf8;
+}
+
+/* =========================================
+   2. 居中个人画像区域 (Hero)
+   ========================================= */
+.hero-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.hero-avatar {
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
-    box-shadow: 0 0 8px #10b981;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 28px rgba(56, 189, 248, 0.15);
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.hero h1 {
-    margin: 0;
-    font-size: 2.5rem;
+.hero-avatar:hover {
+    transform: scale(1.05);
+    border-color: rgba(56, 189, 248, 0.5);
+}
+
+.hero-name {
+    margin: 1.4rem 0 0.6rem;
+    font-size: 2.2rem;
     font-weight: 700;
     color: #fafafa;
     letter-spacing: -0.5px;
 }
 
-.hero .tagline {
-    margin: 0.6rem 0 0;
-    font-size: 1.05rem;
-    color: #a1a1aa;
-}
-
-/* =========================================
-   卡片列表容器
-   ========================================= */
-.container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-}
-
-/* 核心进化：半透明磨砂面板，与背景融为一体 */
-.card {
-    background: rgba(255, 255, 255, 0.02); /* 半透明透光底色 */
-    backdrop-filter: blur(12px);          /* 磨砂质感 */
-    -webkit-backdrop-filter: blur(12px);
-    padding: 1.6rem 1.8rem;
-    border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.06); /* 柔和半透微光细边框 */
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* 悬停时的柔光扩散（Glow Effect），告别沉重死黑投影 */
-.card:hover {
-    background: rgba(255, 255, 255, 0.035);
-    border-color: rgba(56, 189, 248, 0.25); /* 边框泛起淡淡荧蓝 */
-    transform: translateY(-2px);
-    box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.5), 0 0 24px -4px rgba(56, 189, 248, 0.12);
-}
-
-.card h2 {
-    margin: 0 0 0.8rem;
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: #f4f4f5;
+.hero-meta {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-}
-
-.card p {
-    color: #a1a1aa;
-    margin: 0;
+    gap: 1.5rem;
     font-size: 0.95rem;
-    line-height: 1.65;
+    color: #94a3b8;
 }
 
-.card a {
-    color: #38bdf8;
+.meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.meta-link {
+    color: #94a3b8;
     text-decoration: none;
     transition: color 0.2s;
 }
 
-.card a:hover {
-    color: #7dd3fc;
-    text-decoration: underline;
-}
-
-/* 技能标签胶囊 */
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.4rem;
-}
-
-.tag {
-    background-color: rgba(255, 255, 255, 0.03);
-    color: #cbd5e1;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    padding: 4px 11px;
-    border-radius: 8px;
-    font-size: 0.82rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-}
-
-.tag:hover {
+.meta-link:hover {
     color: #38bdf8;
-    background-color: rgba(56, 189, 248, 0.08);
-    border-color: rgba(56, 189, 248, 0.3);
 }
 
 /* =========================================
-   页脚
+   3. 主体分栏内容区（左栏标题，右栏正文）
+   ========================================= */
+.content-section {
+    margin-bottom: 3rem;
+}
+
+.section-grid {
+    display: grid;
+    grid-template-columns: 180px 1fr; /* 左栏固定 180px，右栏自适应占据剩余 */
+    gap: 3.5rem;
+    align-items: start;
+}
+
+/* 左侧标题 */
+.section-title h2 {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #fafafa;
+    letter-spacing: -0.3px;
+}
+
+/* 右侧正文流 */
+.section-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    color: #cbd5e1;
+    font-size: 0.98rem;
+    line-height: 1.85;
+}
+
+.section-body p {
+    margin: 0;
+}
+
+/* 身份标签与删除线趣味效果 */
+.role-tagline {
+    font-size: 1.05rem;
+    color: #94a3b8;
+    margin-bottom: 0.5rem !important;
+}
+
+.role-tagline s {
+    color: #64748b;
+    text-decoration: line-through;
+}
+
+/* 右下角胶囊按钮 */
+.section-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+
+.btn-pill {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #94a3b8;
+    padding: 7px 18px;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-pill:hover {
+    color: #fafafa;
+    border-color: rgba(56, 189, 248, 0.4);
+    background: rgba(56, 189, 248, 0.08);
+}
+
+/* =========================================
+   4. 博客子页面样式 (Blog Subpage)
+   ========================================= */
+.blog-header {
+    margin-bottom: 3.5rem;
+}
+
+.blog-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fafafa;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.5px;
+}
+
+.blog-subtitle {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 1.05rem;
+}
+
+/* 博客文章列表容器 */
+.post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* 单篇文章条目（半透明微光面板） */
+.post-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 1.5rem 1.75rem;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.post-item:hover {
+    background: rgba(255, 255, 255, 0.035);
+    border-color: rgba(56, 189, 248, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.5), 0 0 20px -4px rgba(56, 189, 248, 0.1);
+}
+
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    color: #71717a;
+    margin-bottom: 0.6rem;
+}
+
+.post-date {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.post-tag {
+    background: rgba(56, 189, 248, 0.1);
+    color: #38bdf8;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+.post-heading {
+    margin: 0 0 0.6rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.post-link {
+    color: #fafafa;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.post-item:hover .post-link {
+    color: #38bdf8;
+}
+
+.post-excerpt {
+    margin: 0;
+    color: #a1a1aa;
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+
+/* =========================================
+   5. 底部版权
    ========================================= */
 .footer {
     text-align: center;
-    padding-top: 4rem;
+    padding-top: 5rem;
     font-size: 0.82rem;
     color: #52525b;
+}
+
+/* =========================================
+   响应式适配：移动端自然回落
+   ========================================= */
+@media (max-width: 680px) {
+    .section-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+        padding-bottom: 2.5rem;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        gap: 1.2rem;
+    }
+
+    .hero-center {
+        margin-bottom: 3.5rem;
+    }
+}
+
+/* =========================================
+   6. Markdown 文章阅读排版样式
+   ========================================= */
+.post-container {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.back-link {
+    display: inline-block;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: #38bdf8;
+}
+
+/* Markdown 生成的内容外包裹 */
+.markdown-body {
+    line-height: 1.8;
+    color: #cbd5e1;
+    font-size: 1.05rem;
+}
+
+.markdown-body h1 {
+    font-size: 2.2rem;
+    color: #fafafa;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 0.6rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.markdown-body h2 {
+    font-size: 1.5rem;
+    color: #fafafa;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.markdown-body p {
+    margin-bottom: 1.25rem;
+}
+
+/* 引用块样式 */
+.markdown-body blockquote {
+    margin: 1.5rem 0;
+    padding: 0.75rem 1.25rem;
+    border-left: 3px solid #38bdf8;
+    background: rgba(255, 255, 255, 0.02);
+    color: #94a3b8;
+    border-radius: 0 8px 8px 0;
+}
+
+/* 代码块样式 */
+.markdown-body pre {
+    background: #121215;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 1.2rem;
+    overflow-x: auto;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.9rem;
+}
+
+.markdown-body code {
+    background: rgba(255, 255, 255, 0.05);
+    color: #38bdf8;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.markdown-body pre code {
+    background: transparent;
+    padding: 0;
+    color: #e4e4e7;
+}
+
+/* 列表样式 */
+.markdown-body ul, .markdown-body ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.markdown-body li {
+    margin-bottom: 0.5rem;
 }
