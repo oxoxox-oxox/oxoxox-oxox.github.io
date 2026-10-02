@@ -1,0 +1,17 @@
+.page-wrapper {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 1.5rem 1.75rem 4rem;
+}
+
+.section-grid {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 3.5rem;
+    align-items: start;
+}
+
+.post-container {
+    max-width: var(--article-max);
+    margin: 0 auto;
+}

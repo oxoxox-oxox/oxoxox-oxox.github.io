@@ -1,0 +1,62 @@
+/* =========================================
+   文章卡片组件 (Post Card)
+   ========================================= */
+.post-item {
+    background: var(--color-surface, rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-lg, 12px);
+    padding: 1.5rem 1.75rem;
+    transition: all 0.3s var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1));
+}
+
+.post-item:hover {
+    background: var(--color-surface-hover, rgba(255, 255, 255, 0.035));
+    border-color: rgba(56, 189, 248, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.5), 0 0 20px -4px rgba(56, 189, 248, 0.1);
+}
+
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--color-text-faint, #71717a);
+    margin-bottom: 0.6rem;
+}
+
+.post-date {
+    font-family: var(--font-mono, SFMono-Regular, Menlo, Monaco, Consolas, monospace);
+}
+
+.post-tag {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--color-accent, #38bdf8);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm, 6px);
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+.post-heading {
+    margin: 0 0 0.6rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.post-link {
+    color: var(--color-text-strong, #fafafa);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.post-item:hover .post-link {
+    color: var(--color-accent, #38bdf8);
+}
+
+.post-excerpt {
+    margin: 0;
+    color: #a1a1aa;
+    font-size: 0.92rem;
+    line-height: 1.65;
+}

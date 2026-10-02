@@ -1,0 +1,22 @@
+@media (max-width: 680px) {
+    .section-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+        padding-bottom: 2.5rem;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        gap: 1.2rem;
+    }
+
+    .hero-center {
+        margin-bottom: 3.5rem;
+    }
+}

@@ -1,0 +1,57 @@
+/* =========================================
+   顶部全局导航栏（左右两端对齐）
+   ========================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0 4rem;
+}
+
+.nav-brand {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-text-strong, #fafafa);
+    text-decoration: none;
+    letter-spacing: -0.3px;
+    transition: opacity 0.2s;
+}
+
+.nav-brand:hover {
+    opacity: 0.85;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.nav-link {
+    color: var(--color-text-soft, #cbd5e1);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--color-text-strong, #fafafa);
+}
+
+.nav-icon-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted, #94a3b8);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border-radius: var(--radius-sm, 6px);
+    transition: color 0.2s;
+}
+
+.nav-icon-btn:hover {
+    color: var(--color-accent, #38bdf8);
+}

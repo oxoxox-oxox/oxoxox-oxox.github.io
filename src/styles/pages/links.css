@@ -1,0 +1,71 @@
+/* =========================================
+   链接页样式 (Links Page)
+   ========================================= */
+.links-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.links-group-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-text-strong, #fafafa);
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.2px;
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+}
+
+.link-card {
+    background: var(--color-surface, rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-lg, 12px);
+    padding: 1.25rem 1.5rem;
+    text-decoration: none;
+    transition: all 0.25s var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1));
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.link-card:hover {
+    background: var(--color-surface-hover, rgba(255, 255, 255, 0.035));
+    border-color: rgba(56, 189, 248, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.5);
+}
+
+.link-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link-card-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-text-strong, #fafafa);
+}
+
+.link-card:hover .link-card-name {
+    color: var(--color-accent, #38bdf8);
+}
+
+.link-card-badge {
+    font-size: 0.72rem;
+    padding: 2px 7px;
+    border-radius: var(--radius-sm, 6px);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-text-muted, #94a3b8);
+}
+
+.link-card-desc {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--color-text-muted, #94a3b8);
+    line-height: 1.5;
+}

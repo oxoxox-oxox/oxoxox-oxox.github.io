@@ -1,0 +1,44 @@
+/* =========================================
+   主体分栏内容区（左栏标题，右栏正文）
+   ========================================= */
+.content-section {
+    margin-bottom: 3rem;
+}
+
+.section-title h2 {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text-strong, #fafafa);
+    letter-spacing: -0.3px;
+}
+
+.section-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    color: var(--color-text-soft, #cbd5e1);
+    font-size: 0.98rem;
+    line-height: 1.85;
+}
+
+.section-body p {
+    margin: 0;
+}
+
+.role-tagline {
+    font-size: 1.05rem;
+    color: var(--color-text-muted, #94a3b8);
+    margin-bottom: 0.5rem !important;
+}
+
+.role-tagline s {
+    color: #64748b;
+    text-decoration: line-through;
+}
+
+.section-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}

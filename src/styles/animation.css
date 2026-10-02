@@ -1,0 +1,51 @@
+/* =========================================
+   入场渐入动画：优雅依次浮现
+   ========================================= */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 核心组件默认依次入场动画 */
+.navbar,
+.hero-center,
+.content-section,
+.blog-header,
+.post-list,
+.footer {
+    animation: fadeInUp 0.7s var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)) backwards;
+}
+
+.navbar          { animation-delay: 0.05s; }
+.hero-center     { animation-delay: 0.18s; }
+.content-section { animation-delay: 0.32s; }
+.blog-header     { animation-delay: 0.18s; }
+.post-list       { animation-delay: 0.32s; }
+.footer          { animation-delay: 0.46s; }
+
+/* 动画工具类 (按需手动为特定元素添加) */
+.animate-in {
+    animation: fadeInUp 0.7s var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)) backwards;
+}
+
+.delay-1 {
+    animation-delay: 0.05s;
+}
+
+.delay-2 {
+    animation-delay: 0.18s;
+}
+
+.delay-3 {
+    animation-delay: 0.32s;
+}
+
+.delay-4 {
+    animation-delay: 0.46s;
+}
