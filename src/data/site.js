@@ -8,21 +8,21 @@ export const projects = [
     status: 'Active',
   },
   {
-    id: 'cs-explorations',
-    title: 'CS Learning & Explorations',
-    description: '计算机科学专业学习历程中的各类项目实验与算法探索，包含 Python、C#、VR 原型及基础工具构建。',
-    tags: ['Python', 'C#', 'Algorithm', 'Learning'],
-    link: 'https://github.com/oxoxox-oxox',
-    status: 'Ongoing',
-  },
-  {
-    id: 'robomaster-vision',
-    title: 'RoboMaster 算法视觉探索',
-    description: '在校机器人社团 AIM 期间关于视觉自瞄算法、硬件协作及工业相机通信的学习与实践记录。',
-    tags: ['Computer Vision', 'Robotics', 'C++'],
-    link: 'https://github.com/oxoxox-oxox',
+    id: 'year1-furp',
+    title: '运用模型量化和action chunk的PPO端到端导航',
+    description: '在校项目中采用模型量化加上action chunk来解决PPO强化学习导航在性能差的情况下延迟的问题',
+    tags: ['navigation', 'Robotics', 'Reinfore Learning'],
+    link: 'https://github.com/oxoxox-oxox/PPO-End-to-End-Navigation-with-model-quantilize-and-action-chunk',
     status: 'Archived',
   },
+  {
+    id: 'numox',
+    title: 'numox',
+    description: '在学习完CS61C之后有感而发，写的一个简单的仿numpy的计算库',
+    tags: ['AVX', 'openmp', 'matrix operation'],
+    link: 'https://github.com/oxoxox-oxox/numox',
+    status: 'Active',
+  }
 ];
 
 export const socialLinks = [
