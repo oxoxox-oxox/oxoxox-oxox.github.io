@@ -1,8 +1,8 @@
 # oxoxox-oxox.github.io
 
-oxoxox-oxox 的个人主页与技术随笔博客，基于 **React 19 + Vite 6** 全新重构。
+oxoxox-oxox 的个人主页与技术随笔博客，基于 **Astro** 构建并部署为静态站点。
 
-- ⚡️ **技术栈**: React 19 + Vite 6 + React Router 7 (HashRouter) + Marked
+- ⚡️ **技术栈**: Astro + Content Collections + Markdown
 - 🎨 **设计语言**: 极简暗黑美学、自定义设计变量系统 (CSS Tokens)、流光微动效
 - 🚀 **部署**: 原生支持 GitHub Pages 静态托管（已配置 GitHub Actions 自动构建与发布）
 
@@ -19,14 +19,12 @@ oxoxox-oxox 的个人主页与技术随笔博客，基于 **React 19 + Vite 6** 
 │   └── posts/              # Markdown 博客原稿 (大一感悟.md 等)
 ├── src/
 │   ├── assets/             # 图片与媒体资源
-│   ├── components/         # 公用组件 (Navbar, Footer, SearchModal, DeviceModal, PostCard 等)
-│   ├── data/               # 博客元数据、项目列表、友情链接配置文件
-│   ├── pages/              # 页面 (Home, Blog, Post, Projects, Links, NotFound)
+│   ├── content/posts/      # Markdown 文章及 frontmatter
+│   ├── layouts/            # Astro 页面布局
+│   ├── data/site.js        # 项目及链接数据
+│   ├── pages/              # Astro 文件路由
 │   ├── styles/             # 模块化 CSS 设计系统 (tokens, components, pages, markdown 等)
-│   ├── App.jsx             # 路由配置 (HashRouter)
-│   └── main.jsx            # 渲染入口
-├── index.html              # SPA 入口 HTML
-├── vite.config.js          # Vite 构建配置 (base: './')
+├── astro.config.mjs
 └── package.json
 ```
 
@@ -34,7 +32,7 @@ oxoxox-oxox 的个人主页与技术随笔博客，基于 **React 19 + Vite 6** 
 
 ## 本地开发
 
-确保已安装 [Node.js](https://nodejs.org/) (推荐 20+ 或 22+)：
+确保已安装 [Node.js](https://nodejs.org/) 22 或更高版本：
 
 ```bash
 # 启动本地开发服务器
@@ -54,21 +52,20 @@ npm run lint
 
 ## 如何添加新的博客文章
 
-1. 将你的 Markdown 文件（例如 `my-article.md`）放入 `public/posts/` 目录中；
-2. 打开 [`src/data/posts.js`](file:///src/data/posts.js)，在 `posts` 数组中添加对应的元数据项：
+将 Markdown 文件（例如 `my-article.md`）放入 `src/content/posts/`，并在文件顶部添加 frontmatter：
 
 ```javascript
-{
-  id: "my-article",
-  title: "文章标题",
-  date: "2026-10-02",
-  tag: "技术探索",
-  excerpt: "文章简短摘要...",
-  file: "my-article.md"
-}
+---
+title: 文章标题
+date: 2026-10-02
+tag: 技术探索
+excerpt: 文章简短摘要...
+---
+
+正文从这里开始。
 ```
 
-3. 页面将自动在文章列表中展示该文章，并支持搜索、标签过滤与 Markdown 阅读！
+文章列表、详情页和搜索数据会在构建时自动生成。
 
 ---
 

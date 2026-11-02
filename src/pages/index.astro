@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const posts = await getCollection('posts', ({ data }) => data.published);
+const latestPost = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())[0];
+---
+
+<BaseLayout>
+  <header class="hero-center animate-in delay-2">
+    <img class="hero-avatar" src="/img/cat.jpg" alt="oxoxox-oxox 头像" />
+    <h1 class="hero-name" id="greeting">oxoxox-oxox</h1>
+    <div class="hero-meta">
+      <span class="meta-item"><span>⌖</span><span>China / Ningbo</span></span>
+      <a href="https://github.com/oxoxox-oxox" target="_blank" rel="noreferrer" class="meta-item meta-link"><span>GitHub</span></a>
+    </div>
+  </header>
+  <section class="content-section animate-in delay-3">
+    <div class="section-grid">
+      <aside class="section-title"><h2>About</h2></aside>
+      <div class="section-body">
+        <p class="role-tagline">Developer / CS Student / <s>Beginner</s></p>
+        <p>你好，我叫 oxoxox-oxox。</p>
+        <p>本科就读于宁波诺丁汉大学计算机科学专业。正在探索计算机各个领域，热衷于构建高效且富有趣味的项目。</p>
+        <p>目前在各个方向迷茫的徘徊，依旧在探索并学习。</p>
+        {latestPost && <div style="margin-top:1rem;padding:0.8rem 1rem;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md)"><span style="font-size:0.82rem;color:var(--color-accent);font-weight:500">最新文章：</span><a href={`/blog/${latestPost.slug}/`} style="color:var(--color-text-strong);text-decoration:none;margin-left:0.5rem;font-size:0.92rem">{latestPost.data.title} →</a></div>}
+        <div class="section-actions"><a href="https://github.com/oxoxox-oxox" target="_blank" rel="noreferrer" class="btn-pill">More about me</a></div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

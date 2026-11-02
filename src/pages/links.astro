@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { socialLinks, friendLinks } from '../data/site.js';
+---
+
+<BaseLayout title="Links · oxoxox-oxox">
+  <header class="blog-header animate-in delay-2"><h1 class="blog-title">Links</h1><p class="blog-subtitle">社交媒体、个人足迹与友情链接</p></header>
+  <section class="links-section animate-in delay-3">
+    <h2 class="links-group-title">网络足迹 (Profiles)</h2>
+    <div class="links-grid">{socialLinks.map((item) => <a href={item.url} target="_blank" rel="noreferrer" class="link-card"><div class="link-card-header"><span class="link-card-name">{item.name}</span><span class="link-card-badge">{item.badge}</span></div><p class="link-card-desc">{item.desc}</p></a>)}</div>
+    <h2 class="links-group-title" style="margin-top:3rem">推荐与友链 (Resources & Friends)</h2>
+    <div class="links-grid">{friendLinks.map((item) => <a href={item.url} target="_blank" rel="noreferrer" class="link-card"><div class="link-card-header"><span class="link-card-name">{item.name}</span><span class="link-card-badge">{item.badge}</span></div><p class="link-card-desc">{item.desc}</p></a>)}</div>
+  </section>
+</BaseLayout>

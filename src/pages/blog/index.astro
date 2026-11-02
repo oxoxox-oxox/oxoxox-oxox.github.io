@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('posts', ({ data }) => data.published)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const tags = [...new Set(posts.map(({ data }) => data.tag).filter(Boolean))];
+---
+
+<BaseLayout title="Blog · oxoxox-oxox">
+  <header class="blog-header animate-in delay-2">
+    <h1 class="blog-title">Blog</h1>
+    <p class="blog-subtitle">记录计算机学习、技术探索与生活思考</p>
+    <div class="blog-filters" data-tag-filters>
+      <button class="tag-filter active" data-tag="all">全部</button>
+      {tags.map((tag) => <button class="tag-filter" data-tag={tag}>{tag}</button>)}
+    </div>
+  </header>
+  <section class="post-list animate-in delay-3">
+    {posts.map(({ slug, data }) => <article class="post-item" data-post-tag={data.tag || ''}>
+      <div class="post-meta"><time class="post-date" datetime={data.date.toISOString()}>{data.date.toISOString().slice(0, 10)}</time>{data.tag && <span class="post-tag">{data.tag}</span>}</div>
+      <h2 class="post-heading"><a href={`/blog/${slug}/`} class="post-link">{data.title}</a></h2>
+      <p class="post-excerpt">{data.excerpt}</p>
+    </article>)}
+  </section>
+  <script>
+    const buttons = document.querySelectorAll('[data-tag-filters] [data-tag]');
+    buttons.forEach((button) => button.addEventListener('click', () => {
+      buttons.forEach((item) => item.classList.toggle('active', item === button));
+      document.querySelectorAll('[data-post-tag]').forEach((post) => { post.hidden = button.dataset.tag !== 'all' && post.dataset.postTag !== button.dataset.tag; });
+    }));
+  </script>
+</BaseLayout>
